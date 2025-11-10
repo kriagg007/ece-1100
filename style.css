@@ -73,3 +73,15 @@ ul.compact{margin-top:.6rem}
 .timeline{margin-top:1rem;border-left:2px solid rgba(255,255,255,.1);padding-left:.9rem}
 .tl-item{margin:.5rem 0}
 .tl-item .when{display:inline-block;min-width:90px;color:var(--muted)}
+
+.project-media {
+  margin: 0.8rem 0 0.3rem;
+}
+.project-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
