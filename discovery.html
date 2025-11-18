@@ -4,199 +4,231 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Discovery Project — Boost Converter | Krishiv Aggarwal</title>
-  <meta name="description" content="ECE 1100 Discovery Project: 5V to 15V Boost Converter by Krishiv Aggarwal" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="ECE 1100 Discovery Project: 5V to 15V Boost Converter by Krishiv Aggarwal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html">KA</a>
-    <nav class="nav">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#resume">Resume</a>
-      <a href="index.html#goals">Career Goals</a>
-      <a href="index.html#projects">Projects</a>
-      <a class="accent" href="discovery.html">Discovery Project</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-    <button id="menuBtn" class="menu-btn">☰</button>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Home">KA</a>
+      <nav class="nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#resume">Resume</a>
+        <a href="index.html#goals">Career Goals</a>
+        <a href="index.html#projects">Projects</a>
+        <a class="accent" href="discovery.html">Discovery Project</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle Menu">☰</button>
+    </div>
+  </header>
 
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Discovery Project: <span class="accent">5V → 15V Boost Converter</span></h1>
-        <p class="lead">
-          A hands-on power electronics project exploring switching converters,
-          PWM control, inductor behavior, diode selection, and real-world vs. simulated performance.
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Discovery Project: <span class="accent">5V → 15V Boost Converter</span></h1>
+          <p class="lead">
+            A power electronics project where I designed, simulated, and prototyped a DC–DC boost converter
+            that raises a 5V input to about 15V, while comparing QSPICE simulations to real hardware behavior.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#idea">Idea</a>
+            <a class="btn" href="#progress">Progress</a>
+            <a class="btn" href="#skills">ECE Skills</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IDEA / PITCH -->
+    <section id="idea" class="section">
+      <div class="container">
+        <h2>Starting Idea / Pitch</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Initial Concept</h3>
+            <p>
+              My starting idea for the Discovery Project was to build a practical circuit that forced me to
+              understand switching behavior, inductors, and real-world non-ideal components. A boost converter
+              is perfect for that: it is widely used in battery-powered electronics to step up voltage, and its
+              behavior is strongly tied to core ECE concepts.
+            </p>
+            <p>
+              The target was simple on paper: design a converter that takes <strong>5V in</strong> and boosts it
+              to roughly <strong>15V out</strong> using an inductor, MOSFET, diode, and output capacitor,
+              controlled by a PWM signal.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Requirements</h3>
+            <ul class="bullets">
+              <li>Input: 5V DC supply</li>
+              <li>Output: ~15V DC, stable after startup</li>
+              <li>Inductor: 22µH (chosen from typical boost designs)</li>
+              <li>Switch: AO4262E MOSFET</li>
+              <li>Diode: ES3A fast-recovery rectifier</li>
+              <li>Simulation and measurement comparison</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-media">
+          <img src="assets/boost_converter.jpg"
+               alt="Boost converter breadboard prototype"
+               style="width:100%;height:auto;border-radius:12px;">
+          <p class="hint">Breadboard prototype of the 5V → 15V boost converter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress" class="section alt">
+      <div class="container">
+        <h2>Project Progress</h2>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="when">Week 1–2</span>
+            <span class="what">Reviewed boost converter equations and relationships between duty cycle and output voltage (Vout = Vin / (1 − D)).</span>
+          </div>
+          <div class="tl-item">
+            <span class="when">Week 3</span>
+            <span class="what">Built a QSPICE schematic of the converter and started transient simulations.</span>
+          </div>
+          <div class="tl-item">
+            <span class="when">Week 4</span>
+            <span class="what">Chose inductor, MOSFET, diode, and capacitor values; checked current and voltage ratings.</span>
+          </div>
+          <div class="tl-item">
+            <span class="when">Week 5–6</span>
+            <span class="what">Prototyped the circuit on a breadboard and verified that the output voltage rose above 5V.</span>
+          </div>
+          <div class="tl-item">
+            <span class="when">Week 7–8</span>
+            <span class="what">Captured waveforms, compared overshoot and settling between simulation and hardware, and documented results.</span>
+          </div>
+        </div>
+
+        <h3>Schematic & Simulation</h3>
+
+        <div class="project-media">
+          <img src="assets/boost_schematic.png"
+               alt="QSPICE schematic of the 5V to 15V boost converter"
+               style="width:100%;height:auto;border-radius:12px;">
+          <p class="hint">QSPICE schematic showing the 22µH inductor, AO4262E MOSFET, ES3A diode, 100µF capacitor, and 30Ω load.</p>
+        </div>
+
+        <div class="project-media">
+          <img src="assets/boost_simulation.png"
+               alt="Boost converter simulation waveform showing overshoot and settling"
+               style="width:100%;height:auto;border-radius:12px;">
+          <p class="hint">
+            Simulation: output voltage ramps up from 5V, overshoots near ~22V, then settles close to the 15V target.
+          </p>
+        </div>
+
+        <p>
+          The simulation predicted a noticeable startup overshoot followed by a decaying ripple as the output settled.
+          When I tested the real circuit, I observed a very similar shape on the oscilloscope, which gave me confidence
+          that the model and component choices were reasonable.
         </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#idea">Idea</a>
-          <a class="btn" href="#progress">Progress</a>
-          <a class="btn" href="#skills">Skills Gained</a>
+      </div>
+    </section>
+
+    <!-- SUCCESSES & FAILURES -->
+    <section id="results" class="section">
+      <div class="container">
+        <h2>Project Successes &amp; Failures</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Successes</h3>
+            <ul class="bullets">
+              <li>Successfully boosted 5V to approximately 15V on the bench.</li>
+              <li>Simulation waveforms matched real hardware behavior (overshoot + settling).</li>
+              <li>Component ratings were chosen correctly; no devices were overstressed.</li>
+              <li>Demonstrated clear relationship between duty cycle and output voltage.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Roadblocks &amp; Failures</h3>
+            <ul class="bullets">
+              <li>
+                <strong>Overshoot:</strong> Initially saw a higher-than-expected peak voltage.
+                This led me to think about soft-start and ramping duty cycle more gently.
+              </li>
+              <li>
+                <strong>Ripple and ringing:</strong> Breadboard parasitics and long leads introduced ringing
+                that was not as strong in simulation, highlighting layout as a key next step.
+              </li>
+              <li>
+                <strong>Diode losses:</strong> The ES3A’s forward drop reduces efficiency; in a next revision I’d
+                test a Schottky diode designed for switching converters.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- IDEA / PITCH -->
-  <section id="idea" class="section">
+    <!-- ECE SKILLS GAINED -->
+    <section id="skills" class="section alt">
+      <div class="container">
+        <h2>ECE Skills Gained</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Technical / Power Skills</h3>
+            <ul class="bullets">
+              <li>Understanding the boost converter topology and duty-cycle equation.</li>
+              <li>Selecting inductor, diode, MOSFET, and capacitor values based on ratings and ripple.</li>
+              <li>Using QSPICE to run transient simulations and interpret waveforms.</li>
+              <li>Recognizing overshoot, ripple, and steady-state behavior on both plots and scope captures.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Practical Lab Skills</h3>
+            <ul class="bullets">
+              <li>Breadboarding a switching converter safely.</li>
+              <li>Using an oscilloscope to measure output voltage vs. time.</li>
+              <li>Debugging issues caused by parasitic inductance/Capacitance in wiring.</li>
+              <li>Documenting results clearly with annotated screenshots and photos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL THOUGHTS -->
+    <section id="reflection" class="section">
+      <div class="container">
+        <h2>Final Thoughts &amp; Future Work</h2>
+        <p>
+          Overall, this Discovery Project made power electronics feel much more concrete. Instead of just seeing
+          the boost converter equation in a slide, I watched the inductor current ramp, the diode conduct, and the
+          output voltage settle into place. It also showed me how important layout, parasitics, and component
+          selection are if I ever want to ship a design instead of just simulating it.
+        </p>
+        <p>
+          This experience strengthened my interest in the <strong>Power &amp; Electronics</strong> side of ECE.
+          In the future, I’d like to design a PCB version of this converter, add proper feedback regulation,
+          and measure real efficiency across load conditions. That would turn this Discovery Project into a
+          stepping stone for more advanced converter designs.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-      <h2>Starting Idea / Pitch</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>Project Motivation</h3>
-          <p>
-            My original idea was to build a hardware project that would help me understand switching behavior,
-            inductors, MOSFET control, and the basics of power conversion. A boost converter is a classic
-            and extremely useful topology — found in battery-powered devices, LED drivers, and RF circuits.
-          </p>
-          <p>
-            The goal: take a 5V input and step it up to ~15V using an inductor, MOSFET, diode, and PWM control.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Initial Plan</h3>
-          <ul class="bullets">
-            <li>Schematic design in QSPICE</li>
-            <li>Simulate current/voltage behavior at different duty cycles</li>
-            <li>Breadboard prototype using AO4262E MOSFET + ES3A diode</li>
-            <li>Measure ripple, startup behavior, and load response</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="project-media">
-        <img src="assets/boost_converter.jpg"
-             alt="Boost converter breadboard prototype"
-             style="width:100%;border-radius:12px;">
-        <p class="hint">Breadboard prototype of the 5V → 15V converter.</p>
-      </div>
+      <p>© 2025 Krishiv Aggarwal • Discovery Project</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- PROGRESS -->
-  <section id="progress" class="section alt">
-    <div class="container">
-      <h2>Project Progress</h2>
-
-      <div class="timeline">
-        <div class="tl-item"><span class="when">Week 1</span><span class="what">Learned boost converter topology and duty-cycle equation: Vout = Vin / (1 - D)</span></div>
-        <div class="tl-item"><span class="when">Week 2</span><span class="what">Built QSPICE schematic and simulated switching behavior</span></div>
-        <div class="tl-item"><span class="when">Week 3</span><span class="what">Selected components: 22µH inductor, ES3A diode, AO4262E MOSFET</span></div>
-        <div class="tl-item"><span class="when">Week 4</span><span class="what">Breadboarded full converter; verified diode conduction + inductor charging</span></div>
-        <div class="tl-item"><span class="when">Week 5</span><span class="what">Measured output ripple and validated simulated overshoot</span></div>
-      </div>
-
-      <h3>Schematic & Simulation</h3>
-
-      <div class="project-media">
-        <img src="assets/boost_schematic.png"
-             alt="Boost converter QSPICE schematic"
-             style="width:100%;border-radius:12px;">
-        <p class="hint">QSPICE schematic using AO4262E MOSFET and ES3A diode.</p>
-      </div>
-
-      <div class="project-media">
-        <img src="assets/boost_simulation.png"
-             alt="Boost converter simulation output showing voltage rise"
-             style="width:100%;border-radius:12px;">
-        <p class="hint">Simulation showing startup overshoot and settling behavior.</p>
-      </div>
-
-      <p>
-        The simulation predicted a voltage overshoot to ~22V before settling near 15V, which matched real hardware
-        behavior closely. This validated the inductor value and switching frequency selection (~200 kHz).
-      </p>
-    </div>
-  </section>
-
-  <!-- SUCCESSES & FAILURES -->
-  <section id="results" class="section">
-    <div class="container">
-      <h2>Successes & Failures</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>Successes</h3>
-          <ul class="bullets">
-            <li>Simulation matched real-world waveform shape</li>
-            <li>Achieved ~15V output from 5V input</li>
-            <li>Inductor + MOSFET switching worked reliably</li>
-            <li>Learned reading QSPICE waveforms (overshoot, ripple)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Failures / Challenges</h3>
-          <ul class="bullets">
-            <li>Large initial overshoot (~22V) before settling</li>
-            <li>Output ripple higher than expected</li>
-            <li>Inconsistent behavior from breadboard parasitics</li>
-            <li>ES3A diode forward drop caused efficiency loss</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS GAINED -->
-  <section id="skills" class="section alt">
-    <div class="container">
-      <h2>ECE Skills Gained</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>Power Electronics Concepts</h3>
-          <ul class="bullets">
-            <li>Boost converter topology & control equations</li>
-            <li>Inductor charging/discharging behavior</li>
-            <li>PWM duty cycle vs. output voltage</li>
-            <li>Diode reverse recovery & selection</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Hands-On Hardware Skills</h3>
-          <ul class="bullets">
-            <li>Breadboarding switching circuits</li>
-            <li>Measuring output ripple</li>
-            <li>Debugging parasitic ringing</li>
-            <li>QSPICE schematic + waveform analysis</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL THOUGHTS -->
-  <section id="reflection" class="section">
-    <div class="container">
-      <h2>Final Thoughts & Reflection</h2>
-      <p>
-        This project gave me my first real hands-on experience with switching converters,
-        and it strengthened my interest in power electronics. Seeing the simulation match
-        the real circuit was extremely rewarding. I plan to continue this work by designing
-        a proper PCB version of this boost converter and characterizing efficiency more deeply.
-      </p>
-      <p>
-        Overall, this project validated my long-term interest in the Power & Electronic Devices thread.
-      </p>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2025 Krishiv Aggarwal • Discovery Project</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
